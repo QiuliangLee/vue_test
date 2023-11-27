@@ -29,7 +29,7 @@
     }
 </script>
 
-<style lang="less" scoped>
+<style scoped>
     .student {
         background-color: pink;
         padding: 5px;

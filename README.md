@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # 笔记
 
 ## 脚手架文件结构
@@ -64,7 +65,7 @@
         }
         ```
 
-    > 备注：props是只读的，Vue底层会监测你对props的修改，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制props的内容到data中一份，然后去修改data中的数据。
+   > 备注：props是只读的，Vue底层会监测你对props的修改，如果进行了修改，就会发出警告，若业务需求确实需要修改，那么请复制props的内容到data中一份，然后去修改data中的数据。
 
 ## mixin(混入)
 
@@ -72,7 +73,7 @@
 
 2. 使用方式：
 
-    第一步定义混合：
+   第一步定义混合：
 
     ```
     {
@@ -82,10 +83,10 @@
     }
     ```
 
-    第二步使用混入：
+   第二步使用混入：
 
-    ​	全局混入：```Vue.mixin(xxx)```
-    ​	局部混入：```mixins:['xxx']	```
+   ​ 全局混入：```Vue.mixin(xxx)```
+   ​ 局部混入：```mixins:['xxx']    ```
 
 ## 插件
 
@@ -123,21 +124,21 @@
 
 1. 组件化编码流程：
 
-    ​	(1).拆分静态组件：组件要按照功能点拆分，命名不要与html元素冲突。
+   ​    (1).拆分静态组件：组件要按照功能点拆分，命名不要与html元素冲突。
 
-    ​	(2).实现动态组件：考虑好数据的存放位置，数据是一个组件在用，还是一些组件在用：
+   ​    (2).实现动态组件：考虑好数据的存放位置，数据是一个组件在用，还是一些组件在用：
 
-    ​			1).一个组件在用：放在组件自身即可。
+   ​ 1).一个组件在用：放在组件自身即可。
 
-    ​			2). 一些组件在用：放在他们共同的父组件上（<span style="color:red">状态提升</span>）。
+   ​ 2). 一些组件在用：放在他们共同的父组件上（<span style="color:red">状态提升</span>）。
 
-    ​	(3).实现交互：从绑定事件开始。
+   ​    (3).实现交互：从绑定事件开始。
 
 2. props适用于：
 
-    ​	(1).父组件 ==> 子组件 通信
+   ​    (1).父组件 ==> 子组件 通信
 
-    ​	(2).子组件 ==> 父组件 通信（要求父先给子一个函数）
+   ​    (2).子组件 ==> 父组件 通信（要求父先给子一个函数）
 
 3. 使用v-model时要切记：v-model绑定的值不能是props传过来的值，因为props是不可以修改的！
 
@@ -152,19 +153,19 @@
 3. 相关API：
 
     1. ```xxxxxStorage.setItem('key', 'value');```
-        				该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
+       该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
 
     2. ```xxxxxStorage.getItem('person');```
 
-        ​		该方法接受一个键名作为参数，返回键名对应的值。
+       ​ 该方法接受一个键名作为参数，返回键名对应的值。
 
     3. ```xxxxxStorage.removeItem('key');```
 
-        ​		该方法接受一个键名作为参数，并把该键名从存储中删除。
+       ​ 该方法接受一个键名作为参数，并把该键名从存储中删除。
 
     4. ``` xxxxxStorage.clear()```
 
-        ​		该方法会清空存储中的所有数据。
+       ​ 该方法会清空存储中的所有数据。
 
 4. 备注：
 
@@ -195,13 +196,14 @@
 
     3. 若想让自定义事件只能触发一次，可以使用```once```修饰符，或```$once```方法。
 
-4. 触发自定义事件：```this.$emit('atguigu',数据)```		
+4. 触发自定义事件：```this.$emit('atguigu',数据)```
 
 5. 解绑自定义事件```this.$off('atguigu')```
 
 6. 组件上也可以绑定原生DOM事件，需要使用```native```修饰符。
 
-7. 注意：通过```this.$refs.xxx.$on('atguigu',回调)```绑定自定义事件时，回调<span style="color:red">要么配置在methods中</span>，<span style="color:red">要么用箭头函数</span>，否则this指向会出问题！
+7. 注意：通过```this.$refs.xxx.$on('atguigu',回调)```绑定自定义事件时，回调<span style="color:red">要么配置在methods中</span>
+   ，<span style="color:red">要么用箭头函数</span>，否则this指向会出问题！
 
 ## 全局事件总线（GlobalEventBus）
 
@@ -239,7 +241,7 @@
 
 ## 消息订阅与发布（pubsub）
 
-1.   一种组件间通信的方式，适用于<span style="color:red">任意组件间通信</span>。
+1. 一种组件间通信的方式，适用于<span style="color:red">任意组件间通信</span>。
 
 2. 使用步骤：
 
@@ -262,7 +264,7 @@
    4. 提供数据：```pubsub.publish('xxx',数据)```
 
    5. 最好在beforeDestroy钩子中，用```PubSub.unsubscribe(pid)```去<span style="color:red">取消订阅。</span>
-	
+
 ## nextTick
 
 1. 语法：```this.$nextTick(回调函数)```
@@ -280,19 +282,19 @@
    1. 准备好样式：
 
       - 元素进入的样式：
-        1. v-enter：进入的起点
-        2. v-enter-active：进入过程中
-        3. v-enter-to：进入的终点
+         1. v-enter：进入的起点
+         2. v-enter-active：进入过程中
+         3. v-enter-to：进入的终点
       - 元素离开的样式：
-        1. v-leave：离开的起点
-        2. v-leave-active：离开过程中
-        3. v-leave-to：离开的终点
+         1. v-leave：离开的起点
+         2. v-leave-active：离开过程中
+         3. v-leave-to：离开的终点
 
    2. 使用```<transition>```包裹要过度的元素，并配置name属性：
 
       ```vue
       <transition name="hello">
-      	<h1 v-show="isShow">你好啊！</h1>
+          <h1 v-show="isShow">你好啊！</h1>
       </transition>
       ```
 
@@ -302,11 +304,11 @@
 
 ### 方法一
 
-​	在vue.config.js中添加如下配置：
+​ 在vue.config.js中添加如下配置：
 
 ```js
 devServer:{
-  proxy:"http://localhost:5000"
+    proxy:"http://localhost:5000"
 }
 ```
 
@@ -318,24 +320,24 @@ devServer:{
 
 ### 方法二
 
-​	编写vue.config.js配置具体代理规则：
+​ 编写vue.config.js配置具体代理规则：
 
 ```js
 module.exports = {
-	devServer: {
-      proxy: {
-      '/api1': {// 匹配所有以 '/api1'开头的请求路径
-        target: 'http://localhost:5000',// 代理目标的基础路径
-        changeOrigin: true,
-        pathRewrite: {'^/api1': ''}
-      },
-      '/api2': {// 匹配所有以 '/api2'开头的请求路径
-        target: 'http://localhost:5001',// 代理目标的基础路径
-        changeOrigin: true,
-        pathRewrite: {'^/api2': ''}
-      }
+    devServer: {
+        proxy: {
+            '/api1': {// 匹配所有以 '/api1'开头的请求路径
+                target: 'http://localhost:5000',// 代理目标的基础路径
+                changeOrigin: true,
+                pathRewrite: {'^/api1': ''}
+            },
+            '/api2': {// 匹配所有以 '/api2'开头的请求路径
+                target: 'http://localhost:5001',// 代理目标的基础路径
+                changeOrigin: true,
+                pathRewrite: {'^/api2': ''}
+            }
+        }
     }
-  }
 }
 /*
    changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000
@@ -404,28 +406,28 @@ module.exports = {
 
          ```vue
          父组件中：
-         		<Category>
-         			<template scope="scopeData">
-         				<!-- 生成的是ul列表 -->
-         				<ul>
-         					<li v-for="g in scopeData.games" :key="g">{{g}}</li>
-         				</ul>
-         			</template>
-         		</Category>
+                 <Category>
+                     <template scope="scopeData">
+                         <!-- 生成的是ul列表 -->
+                         <ul>
+                             <li v-for="g in scopeData.games" :key="g">{{g}}</li>
+                         </ul>
+                     </template>
+                 </Category>
          
-         		<Category>
-         			<template slot-scope="scopeData">
-         				<!-- 生成的是h4标题 -->
-         				<h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
-         			</template>
-         		</Category>
+                 <Category>
+                     <template slot-scope="scopeData">
+                         <!-- 生成的是h4标题 -->
+                         <h4 v-for="g in scopeData.games" :key="g">{{g}}</h4>
+                     </template>
+                 </Category>
          子组件中：
                  <template>
                      <div>
                          <slot :games="games"></slot>
                      </div>
                  </template>
-         		
+                 
                  <script>
                      export default {
                          name:'Category',
@@ -447,11 +449,11 @@ module.exports = {
 
 ### 1.概念
 
-​		在Vue中实现集中式状态（数据）管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。
+​ 在Vue中实现集中式状态（数据）管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式的管理（读/写），也是一种组件间通信的方式，且适用于任意组件间通信。
 
 ### 2.何时使用？
 
-​		多个组件需要共享数据时
+​ 多个组件需要共享数据时
 
 ### 3.搭建vuex环境
 
@@ -496,7 +498,7 @@ module.exports = {
    })
    ```
 
-###    4.基本使用
+### 4.基本使用
 
 1. 初始化数据、配置```actions```、配置```mutations```，操作文件```store.js```
 
@@ -541,7 +543,7 @@ module.exports = {
 
 3. 组件中修改vuex中的数据：```$store.dispatch('action中的方法名',数据)``` 或 ```$store.commit('mutations中的方法名',数据)```
 
-   >  备注：若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写```dispatch```，直接编写```commit```
+   > 备注：若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写```dispatch```，直接编写```commit```
 
 ### 5.getters的使用
 
@@ -689,7 +691,7 @@ module.exports = {
    ...mapMutations('countAbout',{increment:'JIA',decrement:'JIAN'}),
    ```
 
- ## 路由
+## 路由
 
 1. 理解： 一个路由（route）就是一组映射关系（key - value），多个路由需要路由器（router）进行管理。
 2. 前端路由：key是路径，value是组件。
@@ -816,21 +818,21 @@ module.exports = {
 
       ```js
       {
-      	path:'/demo',
-      	component:Demo,
-      	children:[
-      		{
-      			path:'test',
-      			component:Test,
-      			children:[
-      				{
+          path:'/demo',
+          component:Demo,
+          children:[
+              {
+                  path:'test',
+                  component:Test,
+                  children:[
+                      {
                             name:'hello' //给路由命名
-      					path:'welcome',
-      					component:Hello,
-      				}
-      			]
-      		}
-      	]
+                          path:'welcome',
+                          component:Hello,
+                      }
+                  ]
+              }
+          ]
       }
       ```
 
@@ -845,13 +847,13 @@ module.exports = {
       
       <!--简化写法配合传递参数 -->
       <router-link 
-      	:to="{
-      		name:'hello',
-      		query:{
-      		   id:666,
+          :to="{
+              name:'hello',
+              query:{
+                 id:666,
                   title:'你好'
-      		}
-      	}"
+              }
+          }"
       >跳转</router-link>
       ```
 
@@ -911,27 +913,32 @@ module.exports = {
 
 ### 7.路由的props配置
 
-​	作用：让路由组件更方便的收到参数
+​ 作用：让路由组件更方便的收到参数
 
 ```js
 {
-	name:'xiangqing',
-	path:'detail/:id',
-	component:Detail,
+    name:'xiangqing',
+        path
+:
+    'detail/:id',
+        component
+:
+    Detail,
 
-	//第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件
-	// props:{a:900}
+        //第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件
+        // props:{a:900}
 
-	//第二种写法：props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
-	// props:true
-	
-	//第三种写法：props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
-	props(route){
-		return {
-			id:route.query.id,
-			title:route.query.title
-		}
-	}
+        //第二种写法：props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
+        // props:true
+
+        //第三种写法：props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
+        props(route)
+    {
+        return {
+            id: route.query.id,
+            title: route.query.title
+        }
+    }
 }
 ```
 
@@ -1054,8 +1061,6 @@ module.exports = {
 
 ### 13.路由器的两种工作模式
 
-
-
 1. 对于一个url来说，什么是hash值？—— #及其后面的内容就是hash值。
 2. hash值不会包含在 HTTP 请求中，即：hash值不会带给服务器。
 3. hash模式：
@@ -1066,8 +1071,10 @@ module.exports = {
    1. 地址干净，美观 。
    2. 兼容性和hash模式相比略差。
    3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
-	 
+
 	 
 =======
+
 # vue_test
->>>>>>> 90cd9f54c8ec7119739207fedefcfc04d785e9b1
+
+> > > > > > > 90cd9f54c8ec7119739207fedefcfc04d785e9b1
