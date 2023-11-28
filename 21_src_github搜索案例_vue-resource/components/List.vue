@@ -46,12 +46,12 @@
     }
 
     .card {
-        float: left;
-        width: 33.333%;
-        padding: .75rem;
-        margin-bottom: 2rem;
-        border: 1px solid #efefef;
-        text-align: center;
+      /*float: left;*/;
+      width: 33.333%;
+      padding: .75rem;
+      margin-bottom: 2rem;
+      border: 1px solid #efefef;
+      text-align: center;
     }
 
     .card > img {

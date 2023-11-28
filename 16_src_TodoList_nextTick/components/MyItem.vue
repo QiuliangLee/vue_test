@@ -74,8 +74,8 @@
     }
 
     li label {
-        float: left;
-        cursor: pointer;
+      /*float: left;*/;
+      cursor: pointer;
     }
 
     li label li input {
