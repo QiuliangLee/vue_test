@@ -23,8 +23,9 @@
         this.$http.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
             response => {
               console.log('请求成功了')
-              console.log(JSON.stringify(response))
               //请求成功后更新List的数据
+              console.log(response)
+              console.log(response.data)
               this.$bus.$emit('updateListData', {
                 isLoading: false,
                 errMsg: '',
