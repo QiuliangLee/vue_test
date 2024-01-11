@@ -18,6 +18,7 @@
     },
     methods: {
       searchUsers() {
+        // 1
         //请求前更新List的数据
         this.$bus.$emit('updateListData', {isLoading: true, errMsg: '', users: [], isFirst: false})
         this.$http.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
